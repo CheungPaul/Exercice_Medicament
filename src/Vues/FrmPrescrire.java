@@ -77,6 +77,12 @@ public class FrmPrescrire extends JFrame
 
                 // A vous de jouer
 
+                int idConsultation = Integer.parseInt(txtNumeroConsultation.getText());
+                String dateConsultation = dcDateConsultation.getDate().toString();
+                int numPatient = ctrlPatient.getIdPatientByName((cboPatients.getSelectedItem()).toString());
+                int numMedecin = ctrlMedecin.getIdMedecinByName(cboMedecins.getSelectedItem().toString());
+                ctrlConsultation.InsertConsultation(idConsultation, dateConsultation, numPatient, numMedecin);
+                ctrlPrescrire.InsertPrescrire();
             }
         });
     }

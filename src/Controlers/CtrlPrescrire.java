@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class CtrlPrescrire
+public class    CtrlPrescrire
 {
     private Connection cnx;
     private PreparedStatement ps;
@@ -22,6 +22,8 @@ public class CtrlPrescrire
     public void InsertPrescrire(int idConsult, int numMedicament,int quantite)
     {
         // A vous de jouer
+
+
 
     }
 }

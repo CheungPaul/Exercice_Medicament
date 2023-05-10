@@ -44,7 +44,15 @@ public class CtrlMedecin
         int numMed = 0;
 
         // A vous de jouer
-
+        try {
+            ps = cnx.prepareStatement("SELECT medecin.idMedecin FROM medecin " +
+                                          "WHERE medecin.nomMedecin LIKE ?");
+            ps.setString(1, nomMed);
+            rs = ps.executeQuery();
+            rs.next();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return numMed;
     }
 }

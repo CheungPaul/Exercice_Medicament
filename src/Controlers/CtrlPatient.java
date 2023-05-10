@@ -44,6 +44,15 @@ public class CtrlPatient
         int numPat = 0;
 
         // A vous de jouer
+        try {
+            ps = cnx.prepareStatement("SELECT patient.idPatient FROM patient " +
+                    "WHERE patient.nomPatient LIKE ?;");
+            ps.setString(1, nomPat);
+            rs = ps.executeQuery();
+            rs.next();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         return numPat;
     }
