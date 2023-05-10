@@ -82,7 +82,13 @@ public class FrmPrescrire extends JFrame
                 int numPatient = ctrlPatient.getIdPatientByName((cboPatients.getSelectedItem()).toString());
                 int numMedecin = ctrlMedecin.getIdMedecinByName(cboMedecins.getSelectedItem().toString());
                 ctrlConsultation.InsertConsultation(idConsultation, dateConsultation, numPatient, numMedecin);
-                ctrlPrescrire.InsertPrescrire();
+
+                for (int i = 0; i < tblMedicaments.getRowCount(); i++){
+                    if ( (int) tblMedicaments.getValueAt(i,3) != 0){
+                        ctrlPrescrire.InsertPrescrire(idConsultation, (int) tblMedicaments.getValueAt(i,0), (int) tblMedicaments.getValueAt(i, 3));
+                    }
+                }
+
             }
         });
     }

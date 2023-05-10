@@ -23,6 +23,17 @@ public class    CtrlPrescrire
     {
         // A vous de jouer
 
+        try {
+            ps = cnx.prepareStatement("INSERT INTO prescire(numConsult, numMedoc, quantite)" +
+                    "VALUES (?,?,?)");
+            ps.setInt(1, idConsult);
+            ps.setInt(2, numMedicament);
+            ps.setInt(1, quantite);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
 
     }
